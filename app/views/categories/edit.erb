@@ -1,0 +1,5 @@
+<h3>Edit Category</h3>
+<% form_remote_tag(:url => {:action => "update", :id => @category}) do %>
+<%= error_messages_for 'category' %>
+<%= render :partial => "form" %>
+<% end %>

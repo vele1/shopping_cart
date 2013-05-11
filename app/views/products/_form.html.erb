@@ -1,0 +1,43 @@
+<%= error_messages_for 'product' %>
+<table id='view' class='border' width="100%">
+  <tr>
+    <td> Category</td>
+    <td><%= collection_select 'product', 'category_id', @categories , :id, :name, options ={:prompt =>"Select Category..."}, { :class => 'dropdownSelect'}%></td>
+  </tr>
+  <tr>
+    <td width="15%"> Name </td>
+    <td><%= text_field 'product', 'name', :class => 'textFields'%></td>
+  </tr>
+  <tr>
+    <td>Price</td>
+    <td>
+      <%= text_field 'product', 'price', :class => 'textFields'%>
+      *Only Numerical Numbers are Allowed e.g. <b>R10.00</b> must be entered as <b>10.00</b>
+    </td>
+  </tr>
+  <tr>
+    <td width="15%"> Product Code (SN)</td>
+    <td>
+      <%= text_field 'product', 'product_code', :class => 'textFields'%>
+      *
+    </td>
+  </tr>
+  <tr>
+    <td valign='top'> Description</td>
+    <td><%= text_area 'product', 'description', :cols => 70, :rows => 5 , :class => 'textAreas'%> </td>
+  </tr>
+  <tr>
+    <td valign = "top"> Product Image</td>
+    <td>
+      <%= file_column_field "image", "picture" %>
+      Image size 80 x 80 pixels.
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      <%= check_box 'product', 'available'%>
+      Availability (In Stock.)
+    </td>
+  </tr>
+</table>

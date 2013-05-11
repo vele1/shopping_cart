@@ -1,0 +1,10 @@
+<h3> New Product</h3>
+<div class="information" All Price includes VAT.</div>
+<% form_for(:product ,:url => {:action => 'create',:format => "js"}, :html => { :multipart => true, :target => 'upload_frame'}) do |form| %>
+  <div id="form"><%= render :partial => 'form' %></div>
+<iframe id ='upload_frame' name ="upload_frame" style="width:1px;height:1px"></iframe>
+  <div style="padding-left: 15%">
+    <%= submit_tag "Submit" %>
+    <%= button_to_function "Cancel", "history.go(-1);" %>
+  </div>
+<% end  %>

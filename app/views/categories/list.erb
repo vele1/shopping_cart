@@ -1,0 +1,27 @@
+<%= link_to_function "New Category", "Element.show('new-category')" %> |
+<%= link_to "List Products", :controller=> "products", :action => "list" %>
+<h3>List Categories</h3>
+
+<div id="categories">
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Desctipion</td>
+    <td>Actions</td>
+  </tr>
+  <% for category in @categories %>
+    <tr>
+      <td><%= category.name %></td>
+      <td><%= category.description %></td>
+     <td>
+        <%= link_to("Edit", {:action => "edit", :id => category}) %>
+        <%= link_to_remote("Delete", :url => {:action => "delete", :id => category}) %>
+      </td>
+    </tr>
+  <% end  %>
+</table>
+  </div>
+
+<div id="new-category" style="display: none;">
+  <%= render :partial => "new" %>
+</div>

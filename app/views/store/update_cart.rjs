@@ -1,0 +1,5 @@
+page.show "flash-notice"
+page.visual_effect :highlight, "flash-notice"
+page.replace_html "flash-notice", "Product(s) added successfully to cart!"
+page.show "display-cart"
+page.replace_html "display-cart", :partial => "display_cart"

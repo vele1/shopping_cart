@@ -1,0 +1,38 @@
+
+<strong>
+  <%- if @category %>
+  Products for category <%= @category.name %>
+  <% elsif @search_string %>
+    Products search  for <em><%= @search_string %></em> returned <%= @products.size %> results.
+  <% end %>
+</strong>
+
+<div id="products">
+  <%- unless @products.empty? %>
+    <table width="100%">
+      <tr>
+        <td>Image</td>
+        <td>Name</td>
+        <td>Price</td>
+        <td>Product Code</td>
+        <td>Actions</td>
+      </tr>
+      <% for product in @products %>
+        <tr>
+          <td><% 'Image'  %></td>
+          <td><%= product.name %></td>
+          <td><%= product.price %></td>
+          <td><%= product.product_code %></td>
+          <td>
+            <%- form_remote_tag(:url => {:action => "add_to_cart", :id => product}) do %>
+              <%= select_tag "quantity", options_for_select([1,2,3,4,5,6,7,8]) %>
+              <%= submit_tag("Add to cart") %>
+            <% end %>
+          </td>
+        </tr>
+      <% end  %>
+    </table>
+  <% else %>
+    No product loaded for provided query.
+  <% end %>
+</div>

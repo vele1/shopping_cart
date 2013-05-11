@@ -1,0 +1,38 @@
+<h3>Store</h3>
+
+<table width="100%">
+  <tr>
+    <td width="20%"  valign="top">
+      <table>
+        <tr>
+          <td>
+            Search product...
+            <%- form_remote_tag(:url => {:action => "search_product"}) do %>
+              <%= text_field_tag "search" %>
+              <%= submit_tag("Go") %>
+           <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Categories</strong></td>
+        </tr>
+        <%- for category in @categories %>
+          <tr>
+            <td><%= link_to_remote "#{category.name} (#{category.products.size})", :url=> {:action => "list_products", :id => category} %></td>
+          </tr>
+        <% end %>
+      </table>
+
+    </td>
+    <td id="list-products"  width="80%"  valign="top">
+       <%= render :partial => "list_products" %>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td id="display-cart" style="display:none;">
+      
+    </td>
+  </tr>
+
+</table>

@@ -1,0 +1,26 @@
+<FORM name="PostTest" action="https://www.mygate.co.za/virtual/4x0x0/dsp_details.cfm" method="post">
+<%= hidden_field_tag "Mode" ,"0" %>
+<%= hidden_field_tag "txtRecipient" , 'current_user.presentation_name' %>
+<%= hidden_field_tag "txtMerchantID" ,"3f4bd65b-37b1-4e26-b00a-e2622eb9ca31" %>
+<%= hidden_field_tag "txtApplicationID" ,"57be9592-79d5-41f8-803e-5a7646bc01a5" %>
+<%= hidden_field_tag "txtMerchantReference" , @invoice_no %>
+<%= hidden_field_tag "txtPrice" , "#{format_money @cart.total_price}" %>
+<%= hidden_field_tag "txtCurrencyCode" ,"ZAR" %>
+<%= hidden_field_tag "txtDisplayPrice" , format_money(@cart.total_price)  %>
+<%= hidden_field_tag "txtShippingCost" , format_money(@cart.shipping_cost) %>
+<%= hidden_field_tag "txtDisplayCurrencyCode" ,"ZAR" %>
+<%= hidden_field_tag "txtRedirectSuccessfulURL" , @redirect_to_sucessfully %>
+<%= hidden_field_tag "txtRedirectFailedURL" , @redirect_to_unsucessfully %>
+<%= hidden_field_tag " ShippingCountryCode " ,"ZA" %>
+<%= hidden_field_tag "UCI" , current_user.id %>
+<%= submit_tag "Pay here", :class => "buy-buttong" %>
+
+<% count = 1 %>
+<%- for item in @items %>
+  <%= hidden_field_tag "txtQty#{count}", "#{item.quantity}" %>
+  <%= hidden_field_tag "txtItemRef#{count}", "#{item.product.name}" %>
+  <%= hidden_field_tag "txtItemDescr#{count}", "#{item.product.description}" %>
+  <%= hidden_field_tag "txtItemAmount#{count}", "#{item.product.price}" %>
+  <%- count += 1 %>
+<% end %>
+</FORM>

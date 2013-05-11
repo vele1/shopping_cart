@@ -1,0 +1,32 @@
+<%= link_to "New Product", :action => "new" %> |
+<%= link_to "List Categories", :controller => "categories", :action => "list" %>
+<h3>List Products</h3>
+
+<div id="products">
+<table>
+  <tr>
+    <td>Image</td>
+    <td>Name</td>
+    <td>Price</td>
+    <td>Category</td>
+    <td>Product Code</td>
+    <td>Available</td>
+    <td>Actions</td>
+  </tr>
+  <% for product in @products %>
+    <tr>
+      <td><% 'Image'  %></td>
+      <td><%= product.name %></td>
+      <td><%= product.price %></td>
+      <td><%= product.category ? product.category.name : "<em>No Category</em>" %></td>
+      <td><%= product.product_code %></td>
+      <td><%= product.available? ? 'Yes' : 'No' %></td>
+      <td>
+        <%= link_to("View", :action => "view", :id => product) %>
+        <%= link_to("Edit", :action => "edit", :id => product) %>
+        <%= link_to_remote("Delete", :url => {:action => "delete", :id => product}, :confirm => "Ate you sure you want to delete this product?") %>
+      </td>
+    </tr>
+  <% end  %>
+</table>
+  </div>

@@ -1,0 +1,77 @@
+<strong>
+  <%= link_to "Download Invoice", :action => "download_files", :type => "invoice", :id => @order %>
+  |
+  <%= link_to "Shop Again", :action => "index" %>
+</strong>
+<h3> Complete Shopping</h3>
+<table class="contentText" id="list" width="100%">
+  <tr>
+    <td width = "20%">
+      <strong> Personl Details </strong>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td> fullname</td>
+    <td><%= @order.customer.presentation_name %></td>
+  </tr>
+  <tr>
+    <td> Email Addrss</td>
+    <td><%= @order.customer.email %></td>
+  </tr>
+  <tr>
+    <td>      
+      <strong> Products Details </strong>
+    </td>
+  </tr>
+  <tr>
+    <td> Order Date </td>
+    <td><%= date_format @order.order_date %></td>
+  </tr>
+  <tr>
+    <td> Payment Type</td>
+    <td><%= @order.pay_type.humanize %></td>
+  </tr>
+  <tr>
+    <td> Order Number</td>
+    <td><%= @order.order_no %></td>
+  </tr>
+</table>
+<br/>
+<table class=sortable'>
+  <thead>
+    <tr>
+      <td width = "5%">Qty</td>
+      <td width = "41%">Name</td>
+      <td width = "12%">Unit Price</td>
+      <td width = "12%">Total Per Unit</td>
+    </tr>
+  </thead>
+  <tbody>
+    <%- for item in @items %>
+      <tr>
+        <td><%= item.quantity %></td>
+        <td><%= item.product.name %></td>
+        <td><%= item.product.category.name %></td>
+        <td><%= item.product.price %></td>
+      </tr>
+    <% end  %>
+  </tbody>
+  <tbody>
+     <tr>
+        <td colspan = 2, width = "60%"></td>
+        <td bgcolor = "#E2E2E2" width = "12%">Shipping Cost</td>
+        <td>
+          <strong><%= money @order.shipping_cost %></strong>
+        </td>              
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td bgcolor = "#E2E2E2"><strong> Total:</strong></td>
+        <td bgcolor = "#E2E2E2">
+          <strong><%= money @order.total_price + @order.shipping_cost %> </strong>
+        </td>
+      </tr>
+    </tbody>
+</table>

@@ -1,0 +1,33 @@
+<%= link_to_function("Go Back To Shopping", "history.go(-1);") %>
+<h3>Added Products</h3>
+<div class='information'> Our shopping cart uses MyGate to process transaction, NB MyGate is a secure online payment solution.</div>
+<table width="80%">
+  <thead>
+    <tr>
+      <td width="15%">Quantity</td>
+      <td width="40%">Product Name</td>
+      <td width="25">Price </td>
+      <td width="25%">Unit Price</td>
+    </tr>
+  </thead>
+  <tbody>
+    <%- for item in @items %>
+      <tr>
+        <td><%=  item.quantity%></td>
+        <td><%= item.product.name %></td>
+        <td><%= item.product.category.name %></td>
+        <td><%= item.product.price %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="2"></td>
+      <td><strong>Total Price</strong></td>
+      <td><strong><%= @cart.total_price %></strong></td>
+    </tr>
+  </tfoot>
+</table>
+
+
+<%= render :partial => "process_order_form" -%>

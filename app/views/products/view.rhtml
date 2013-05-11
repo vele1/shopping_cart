@@ -1,0 +1,30 @@
+<%= link_to "List Products", :action => "list" %>
+
+<h3>Product: <%= @product.name %></h3>
+
+<table>
+  <tr>
+    <td>Name</td>
+    <td><%= @product.name%></td>
+  </tr>
+  <tr>
+    <td>Price</td>
+    <td><%= @product.price%></td>
+  </tr>
+  <tr>
+    <td>Category</td>
+    <td><%= @product.category.name %></td>
+  </tr>
+  <tr>
+    <td>Product Code</td>
+    <td><%= @product.product_code %></td>
+  </tr>
+  <tr>
+    <td>Available</td>
+    <td><%= @product.available %></td>
+  </tr>
+  <tr>
+    <td>Description</td>
+    <td><%= @product.description %></td>
+  </tr>
+</table>

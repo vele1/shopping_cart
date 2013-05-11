@@ -1,0 +1,43 @@
+<h3>Added Items to Cart</h3>
+<strong>You can change the product added to cart by changing the number of quantity and click the link next to the textbox. </strong>
+<table width="80%">
+  <thead>
+    <tr>
+      <td width="15%">Quantity</td>
+      <td width="40%">Product Name</td>
+      <td width="25">Price </td>
+      <td width="25%">Unit Price</td>
+    </tr>
+  </thead>
+  <tbody>
+    <%- for item in @items %>
+      <tr>
+        <td>
+           <%- form_remote_tag(:url => {:action => "update_cart", :id => item.product.id}) do %>
+             <%= text_field_tag "quantity", item.quantity, {:size => 2, :onchange => "UpdateProductQty(#{item.product.id})", :class => "text_qty"} %>
+             x
+             <%= submit_tag("u") %>
+           <% end %>
+        </td>
+        <td><%= item.product.name %></td>
+        <td><%= item.product.category.name %></td>
+        <td><%= item.product.price %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="2"></td>
+      <td><strong>Total Price</strong></td>
+      <td><strong><%= @cart.total_price %></strong></td>
+    </tr>
+  </tfoot>
+</table>
+<table width="80%">
+  <tr>    
+    <td>
+      <%= link_to("Empty Cart", :action => "empty_cart") %>
+      <%= link_to("Checkout", :action => "checkout") %>
+    </td>
+  </tr>
+</table>

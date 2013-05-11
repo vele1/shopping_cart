@@ -1,0 +1,17 @@
+<table>
+  <tr>
+    <td>Name</td>
+    <td><%= text_field "category", "name"  %></td>
+  </tr>
+  <tr>
+    <td valign="top">Description</td>
+    <td><%= text_area "category", "description", :cols => "40", :rows => "4"%></td>
+  </tr>
+    <tr>
+    <td></td>
+    <td>
+      <%= submit_tag "Submit" %>
+      <%= button_to_function "Cancel", "Element.hide('new-category')" %>
+    </td>
+  </tr>
+</table>

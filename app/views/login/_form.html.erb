@@ -1,0 +1,36 @@
+<%= error_messages_for "user" %>
+<table width="100%">
+   <tr>
+     <td width="15%">Title</td>
+     <td><%= select "user", "title", ["Mr","Mrs","Ms"] %></td>
+   </tr>
+   <tr>
+     <td>Firstname</td>
+     <td><%= text_field "user", "firstname" %></td>
+   </tr>
+   <tr>
+     <td>Lastname</td>
+     <td><%= text_field "user", "lastname" %></td>
+   </tr>
+   <tr>
+     <td>Email</td>
+     <td><%= text_field "user", "email" %></td>
+   </tr>
+   <tr>
+     <td>Password</td>
+     <td><%= text_field_tag "password" %></td>
+   </tr>
+
+   <tr>
+     <td>Address 1</td>
+     <td><%= text_field "user", "address1" %></td>
+   </tr>
+   <tr>
+     <td>Address 2</td>
+     <td><%= text_field "user", "address2" %></td>
+   </tr>
+   <tr>
+     <td>Address 3</td>
+     <td><%= text_field "user", "address3" %></td>
+   </tr>
+ </table>

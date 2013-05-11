@@ -1,0 +1,5 @@
+<h3>New Category</h3>
+<% form_remote_tag(:url => {:action => "create"}) do %>
+<%= error_messages_for 'category' %>
+<%= render :partial => "form" %>
+<% end %>

@@ -1,0 +1,9 @@
+<h1>Login#register</h1>
+<p>Register on MyShopping</p>
+<%- form_tag(:action => "register") do %>
+  <%= render :partial => "form" %>
+    <div style="padding-left:210px;">
+      <%= submit_tag("Submit") %>
+      <input type="reset" value="Clear"/>
+    </div>
+<% end %>

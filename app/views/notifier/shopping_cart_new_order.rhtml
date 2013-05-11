@@ -1,0 +1,101 @@
+<html>
+  <style type="text/css">
+  /*
+    Document   : estateportal_emails_sent
+    Created on : 29 Mar 2010, 9:28:49 AM
+    Author     : Ronald
+    Description:
+        To create a default style for all the emails that are sent from e-StatePortal
+        software to users.
+*/
+
+/*
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+P{
+    background-color: #ffffff;
+    color: black;
+    font-family: Calibri,Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+ul{
+    background-color: #ffffff;
+    color: black;
+    font-family: Calibri,Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+
+A{
+    font-family: Calibri,Arial, Helvetica, sans-serif;
+    color: black;
+    font-size: 14px;
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+A:hover{
+    font-family: Calibri,Arial, Helvetica, sans-serif;
+    color: black;
+    font-size: 14px;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+h2{
+    height: 1em;
+    font-weight: bold;
+    font-family: Calibri,Arial, Helvetica, sans-serif;
+    background-color: #ffffff;
+    margin: 0 auto;
+    padding: 0;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+h3{
+    height: 1.2em;
+    font-size: 16px;
+    font-family: Calibri,Arial, Helvetica, sans-serif;
+    color: black;
+    background-color: #ffffff;
+}
+
+
+
+#content_info{
+    margin: 0 auto;
+    width: 640px;
+
+  text-align: left;
+}
+</style>
+<table cellpadding="2" align="center" width="640px" style="margin: 0 auto; position: relative;border-collapse: collapse;border: solid silver 1px;color: black;word-wrap: break-word;text-overflow:ellipsis;overflow:auto;font-family: Calibri,Arial, Helvetica, sans-serif;font-size: 14px;">
+<tr>
+  <td align="justify">
+        <h2 style="font-size: 16px;color: black;background-color: #ffffff;font-family: Calibri,Arial, Helvetica, sans-serif;">Shopping Cart: New Order</h2>
+  </td>
+</tr>
+<tr>
+  <td align="justify">
+        <table width="100%" style="color: black;word-wrap: break-word;text-overflow:ellipsis;overflow:auto;font-family: Calibri,Arial, Helvetica, sans-serif;font-size: 14px;">
+          <tr>
+            <td width="20%" style="font-size: 14px;font-family: Calibri,Arial, Helvetica, sans-serif;">Order No</td>
+            <td style="font-size: 14px;font-family: Calibri,Arial, Helvetica, sans-serif;"><%= @order.order_no %></td>
+          </tr>
+          <tr>
+            <td style="font-size: 14px;font-family: Calibri,Arial, Helvetica, sans-serif;">Order Date</td>
+            <td style="font-size: 14px;font-family: Calibri,Arial, Helvetica, sans-serif;"><%= @order.order_date.strftime("%d %B %Y") %></td>
+          </tr>
+          <tr>
+            <td style="font-size: 14px;font-family: Calibri,Arial, Helvetica, sans-serif;">Customer</td>
+            <td style="font-size: 14px;font-family: Calibri,Arial, Helvetica, sans-serif;"><%= @order.customer.presentation_name %></td>
+          </tr>
+         </table>
+  </td>
+ </tr>
+ </table>
+</html>
